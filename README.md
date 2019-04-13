@@ -4,3 +4,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-04-11: Some interesting univariate explorations have been made (number of rides between different hours, weekdays and months)
 
 2019-04-12: Some interesting bivariate explorations have been made
+
+2019-04-13: Added a clustered bar chart
