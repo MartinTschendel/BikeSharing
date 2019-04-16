@@ -8,3 +8,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-04-13: Added a clustered bar chart
 
 2019-04-14: Added a scatter plot with the geographic position of the rental stations
+
+2019-04-15 & 16: Added information on annual ride counts to scatter plot 
