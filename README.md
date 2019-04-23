@@ -15,4 +15,7 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 
 2019-04-20: included respective explanatory analysis documents (project_explanation_slides.ipynb & project_explanation_slides.slides.html)
 
-2019-04-20: the plan is to use data from other cities such as New York and compare it to the data from the San Francisco Bay Area. Additionally, data such such as age could be explored 
+2019-04-22: the plan is to use data from other cities such as New York and compare it to the data from the San Francisco Bay Area. Additionally, data such such as age could be explored 
+
+2019-04-23: These web pages hopefully provide datasets for the purpose mentioned above:
+* (bikeshare)[https://www.bikeshare.com/data/]
