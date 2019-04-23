@@ -19,3 +19,6 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 
 2019-04-23: These web pages hopefully provide datasets for the purpose mentioned above:
 * [bikeshare](https://www.bikeshare.com/data/)
+* [Github Wiki: Bike Share Data Sstems](https://github.com/BetaNYC/Bike-Share-Data-Best-Practices/wiki/Bike-Share-Data-Systems)
+
+
