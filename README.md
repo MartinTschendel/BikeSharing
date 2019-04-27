@@ -25,4 +25,3 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 
 2019-04-26: read in and joint bike sharing data from NY
 
-2019-04-27: listed some data quality issues, what should be solved in the upcoming steps
