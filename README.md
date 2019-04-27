@@ -24,3 +24,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-04-25: I will start to explore additional data on New York in this repo. These jupyter notebook files will provide the current working status: project_exploration_NY.ipynb (project_exploration_NY.html)
 
 2019-04-26: read in and joint bike sharing data from NY
+
+2019-04-27: listed some data quality issues, what should be solved in the upcoming steps
