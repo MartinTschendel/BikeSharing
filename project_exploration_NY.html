@@ -13144,7 +13144,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import all packages and set plots to be embedded inline</span>
@@ -13172,7 +13172,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#load in the datasets </span>
@@ -13194,24 +13194,6 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Wall time: 0 ns
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13223,7 +13205,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#join dataframes along rows</span>
@@ -13247,7 +13229,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_18_NY</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -13287,7 +13269,6 @@ tripduration               int64
 usertype                   object
 dtypes: float64(6), int64(4), object(5)
 memory usage: 2.1+ GB
-Wall time: 4.98 ms
 </pre>
 </div>
 </div>
@@ -13309,8 +13290,9 @@ Wall time: 4.98 ms
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Data-Quality-Issues">Data Quality Issues<a class="anchor-link" href="#Data-Quality-Issues">&#182;</a></h2><p>I figured out some data quality issues and plan to solve them for the upcoming investigation steps.</p>
 <ul>
-<li>data type of columns 'starttime' and 'endtime' is object and not datetime</li>
+<li>data type of columns 'starttime' and 'stoptime' is object and not datetime</li>
 <li>usertype is object and not category</li>
+<li>some column names like 'start station id' have white spaces </li>
 <li>datatype of start_station_id and end_station_id is float and not category</li>
 <li>gender is currently integer (Zero=unknown; 1=male; 2=female) and should be ideally changed to category (Zero-&gt;unknown; 1-&gt;male; 2-&gt;female) </li>
 </ul>
@@ -13320,10 +13302,416 @@ Wall time: 4.98 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_18_NY</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bikeid</th>
+      <th>birth year</th>
+      <th>end station id</th>
+      <th>end station latitude</th>
+      <th>end station longitude</th>
+      <th>end station name</th>
+      <th>gender</th>
+      <th>start station id</th>
+      <th>start station latitude</th>
+      <th>start station longitude</th>
+      <th>start station name</th>
+      <th>starttime</th>
+      <th>stoptime</th>
+      <th>tripduration</th>
+      <th>usertype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31956</td>
+      <td>1992</td>
+      <td>505.0</td>
+      <td>40.749013</td>
+      <td>-73.988484</td>
+      <td>6 Ave &amp; W 33 St</td>
+      <td>1</td>
+      <td>72.0</td>
+      <td>40.767272</td>
+      <td>-73.993929</td>
+      <td>W 52 St &amp; 11 Ave</td>
+      <td>2018-01-01 13:50:57.4340</td>
+      <td>2018-01-01 14:07:08.1860</td>
+      <td>970</td>
+      <td>Subscriber</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32536</td>
+      <td>1969</td>
+      <td>3255.0</td>
+      <td>40.750585</td>
+      <td>-73.994685</td>
+      <td>8 Ave &amp; W 31 St</td>
+      <td>1</td>
+      <td>72.0</td>
+      <td>40.767272</td>
+      <td>-73.993929</td>
+      <td>W 52 St &amp; 11 Ave</td>
+      <td>2018-01-01 15:33:30.1820</td>
+      <td>2018-01-01 15:45:33.3410</td>
+      <td>723</td>
+      <td>Subscriber</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>16069</td>
+      <td>1956</td>
+      <td>525.0</td>
+      <td>40.755942</td>
+      <td>-74.002116</td>
+      <td>W 34 St &amp; 11 Ave</td>
+      <td>1</td>
+      <td>72.0</td>
+      <td>40.767272</td>
+      <td>-73.993929</td>
+      <td>W 52 St &amp; 11 Ave</td>
+      <td>2018-01-01 15:39:18.3370</td>
+      <td>2018-01-01 15:47:35.1720</td>
+      <td>496</td>
+      <td>Subscriber</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>31781</td>
+      <td>1974</td>
+      <td>447.0</td>
+      <td>40.763707</td>
+      <td>-73.985162</td>
+      <td>8 Ave &amp; W 52 St</td>
+      <td>1</td>
+      <td>72.0</td>
+      <td>40.767272</td>
+      <td>-73.993929</td>
+      <td>W 52 St &amp; 11 Ave</td>
+      <td>2018-01-01 15:40:13.3720</td>
+      <td>2018-01-01 15:45:20.1910</td>
+      <td>306</td>
+      <td>Subscriber</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>30319</td>
+      <td>1992</td>
+      <td>3356.0</td>
+      <td>40.774667</td>
+      <td>-73.984706</td>
+      <td>Amsterdam Ave &amp; W 66 St</td>
+      <td>1</td>
+      <td>72.0</td>
+      <td>40.767272</td>
+      <td>-73.993929</td>
+      <td>W 52 St &amp; 11 Ave</td>
+      <td>2018-01-01 18:14:51.5680</td>
+      <td>2018-01-01 18:19:57.6420</td>
+      <td>306</td>
+      <td>Subscriber</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change datetype of columns starttime and stoptime to datetime</span>
+<span class="n">df_18_NY</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_18_NY</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_18_NY</span><span class="o">.</span><span class="n">stoptime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_18_NY</span><span class="o">.</span><span class="n">stoptime</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check if datetype of columns starttime and stoptime is changed to datetime</span>
+<span class="n">df_18_NY</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;usertype&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 17548339 entries, 0 to 1016504
+Data columns (total 15 columns):
+bikeid                     int64
+birth year                 int64
+end station id             float64
+end station latitude       float64
+end station longitude      float64
+end station name           object
+gender                     int64
+start station id           float64
+start station latitude     float64
+start station longitude    float64
+start station name         object
+starttime                  datetime64[ns]
+stoptime                   datetime64[ns]
+tripduration               int64
+usertype                   object
+dtypes: datetime64[ns](2), float64(6), int64(4), object(3)
+memory usage: 2.1+ GB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change datetype of column usertype from object to category</span>
+<span class="n">df_18_NY</span><span class="o">.</span><span class="n">usertype</span> <span class="o">=</span> <span class="n">df_18_NY</span><span class="o">.</span><span class="n">usertype</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check if datetype of column usertype is changed to category</span>
+<span class="n">df_18_NY</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 17548339 entries, 0 to 1016504
+Data columns (total 15 columns):
+bikeid                     int64
+birth year                 int64
+end station id             float64
+end station latitude       float64
+end station longitude      float64
+end station name           object
+gender                     int64
+start station id           float64
+start station latitude     float64
+start station longitude    float64
+start station name         object
+starttime                  datetime64[ns]
+stoptime                   datetime64[ns]
+tripduration               int64
+usertype                   category
+dtypes: category(1), datetime64[ns](2), float64(6), int64(4), object(2)
+memory usage: 2.0+ GB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#rename columns</span>
+<span class="n">df_18_NY</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;start station id&#39;</span><span class="p">:</span><span class="s1">&#39;start_station_id&#39;</span><span class="p">,</span> <span class="s1">&#39;end station id&#39;</span><span class="p">:</span><span class="s1">&#39;end_station_id&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#check if columns have been renamed</span>
+<span class="n">df_18_NY</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bikeid</th>
+      <th>birth year</th>
+      <th>end_station_id</th>
+      <th>end station latitude</th>
+      <th>end station longitude</th>
+      <th>end station name</th>
+      <th>gender</th>
+      <th>start_station_id</th>
+      <th>start station latitude</th>
+      <th>start station longitude</th>
+      <th>start station name</th>
+      <th>starttime</th>
+      <th>stoptime</th>
+      <th>tripduration</th>
+      <th>usertype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31956</td>
+      <td>1992</td>
+      <td>505.0</td>
+      <td>40.749013</td>
+      <td>-73.988484</td>
+      <td>6 Ave &amp; W 33 St</td>
+      <td>1</td>
+      <td>72.0</td>
+      <td>40.767272</td>
+      <td>-73.993929</td>
+      <td>W 52 St &amp; 11 Ave</td>
+      <td>2018-01-01 13:50:57.434</td>
+      <td>2018-01-01 14:07:08.186</td>
+      <td>970</td>
+      <td>Subscriber</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#also change other column names with white spaces</span>
 </pre></div>
 
     </div>
