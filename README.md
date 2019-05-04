@@ -30,3 +30,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-04-29: Cleaned up some of the data quality issues (datetime, renamed columns, ...)
 
 2019-04-29: Continued the cleaning up data quality issues and realized, that processing of some cells leads to MemoryErrors
+
+2019-05-05-04: Due to MemoryError, I just explore NY-dataset from May 2018. All other above mentioned steps remain 
