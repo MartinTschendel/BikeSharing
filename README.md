@@ -34,3 +34,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-05-04: Due to MemoryError, I just explore NY-dataset from May 2018. All other above mentioned steps remain 
 
 2019-05-05: described data, raised questions and created bar chart with number of rides across different times of the day
+
+2019-05-06: creatd a bar chart with number of rides across different days of the week
