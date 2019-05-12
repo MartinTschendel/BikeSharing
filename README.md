@@ -38,3 +38,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-05-06: creatd a bar chart with number of rides across different days of the week
 
 2019-05-07: replaced values within column 'gender'
+
+2019-05-10: plotted trip time of males and females
