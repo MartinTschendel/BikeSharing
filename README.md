@@ -42,3 +42,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-05-10: plotted trip time of males and females in box plot "Trip Time (Seconds) of Males and Females"
 
 2019-05-12: removed 'unknown' from box plot "Trip Time (Seconds) of Males and Females"
+
+2019-05-13: plotted 'Trip time across different days of the week'
