@@ -46,3 +46,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-05-13: plotted 'Trip time across different days of the week'
 
 2019-05-14: plotted trip time of customers and subscribers in box plot "Trip Time (Seconds) between different user types"
+
+2019-05-16: started to explore ride numbers of different user groups across different days of the week
