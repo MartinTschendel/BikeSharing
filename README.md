@@ -50,3 +50,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-05-16: started to explore ride numbers of different user groups across different days of the week
 
 2019-05-17: converted series to dataframe and unstacked dataframe
+
+2019-05-18: plotted Ride Counts of Customers and Subscribers during Different Days of the Week
