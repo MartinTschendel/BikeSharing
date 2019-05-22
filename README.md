@@ -59,3 +59,7 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 
 2019-05-21: plotted the number of rides grouped by 4 different user age categories
 
+2019-05-22: got ride counts of four age groups per weekday
+
+
+
