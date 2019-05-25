@@ -63,5 +63,6 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 
 2019-05-23: converted series to dataframe
 
+2019-05-25: created the bar chart ‘Ride Counts of Age Groups during Different Days of the Week’
 
 
