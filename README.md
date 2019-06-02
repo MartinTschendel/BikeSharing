@@ -70,3 +70,5 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 2019-05-28: started to work on spatial distribution of bike stations
 
 2019-05-30: wrangled data in order to show spatial distribution of bike stations
+
+2019-06-01: plotted the spatial distribution of bike stations
