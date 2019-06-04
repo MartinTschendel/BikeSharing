@@ -73,4 +73,6 @@ Visual exploration of data from the Ford GoBike sharing system, covering the gre
 
 2019-06-01: plotted the spatial distribution of bike stations
 
-2019-06-02: preparation of data towards goal to see the difference of ride counts in the plot ''
+2019-06-02: preparation of data towards goal to see the difference of ride counts in the plot 'Geographic Distribution of Stations'
+
+2019-06-04: some struggles with preparation of data towards goal to see the difference of ride counts in the plot 'Geographic Distribution of Stations'. Hopefully I can find a solution in the next days
